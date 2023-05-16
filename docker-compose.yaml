@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  nginx:
+    image: nginx-web-app:RC1
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+
+
