@@ -1,9 +1,8 @@
 version: '3.7'
-
 services:
   nginx:
-    image: nginx-web-app:RC1
-    container_name: nginx
+    image: snehitha68/cyware-nginxapp:RC1
+    container_name: nginx-container
     restart: always
     ports:
       - "80:80"
