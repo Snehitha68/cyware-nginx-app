@@ -20,7 +20,7 @@ pipeline {
                         // sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.13.95 "sudo usermod -aG docker ec2-user"'
 
                         // Copy the Docker Compose file to the EC2 instance
-                         sh "scp -r -o StrictHostKeyChecking=no docker-compose.yml ubuntu@65.0.100.14:~/"
+                         sh "scp -r -o StrictHostKeyChecking=no docker-compose.yml ubuntu@13.235.33.182:~/"
                          withCredentials([string(credentialsId: 'DOKCER_HUB_PASSWORD', variable: 'DOKCER_HUB_PASSWORD')]) {
                           sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.235.33.182 "docker login -u snehitha68 -p ${DOKCER_HUB_PASSWORD}"'
                            }
