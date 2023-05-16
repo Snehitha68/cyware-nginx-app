@@ -9,11 +9,11 @@ resource "aws_vpc" "cywarevpc" {
 }
 
 resource "aws_subnet" "cywarevpcpublicsubnets" {
-  vpc_id            = aws_vpc.cywarevpc.id
+  vpc_id                  = aws_vpc.cywarevpc.id
   map_public_ip_on_launch = true
-  count             = length(var.publicssubentscidrs)
-  cidr_block        = element(var.publicssubentscidrs, count.index)
-  availability_zone = element(var.aws_availabilty_zones, count.index)
+  count                   = length(var.publicssubentscidrs)
+  cidr_block              = element(var.publicssubentscidrs, count.index)
+  availability_zone       = element(var.aws_availabilty_zones, count.index)
   tags = merge(var.commantags,
     {
       "Name" = "cywarevpc-publicsubnet-${count.index + 1}"
@@ -64,7 +64,7 @@ resource "aws_route_table_association" "cywarevpcpublicrtassociation" {
 
 resource "aws_eip" "nateips" {
   count = length(var.publicssubentscidrs)
-  vpc = true
+  vpc   = true
   tags = merge(var.commantags,
     { "Name" = "Elastic-IP-${count.index + 1}" }
   )
@@ -78,7 +78,7 @@ resource "aws_nat_gateway" "cywarevpcnatgatways" {
     { "Name" = "cywareVPC-NAT-${count.index + 1}" }
   )
 
-   depends_on = [aws_internet_gateway.dempvpcigw]
+  depends_on = [aws_internet_gateway.dempvpcigw]
 }
 
 resource "aws_route_table" "cywarevpcprivateroutetable" {

@@ -23,7 +23,7 @@ variable "commantags" {
   type = map(string)
   default = {
     "Organization" = "cyware",
-    "Environmet"  = "Dev"
+    "Environmet"   = "Dev"
   }
   description = "Comman Tags"
 }
@@ -38,6 +38,10 @@ variable "aws_availabilty_zones" {
   default = ["ap-south-1a", "ap-south-1b"]
 }
 
+variable "bucket_name" {
+  type    = string
+  default = "cyware-terraformstatefile"
+}
 
 #variable "amis_map" {
 # type = map(string)
