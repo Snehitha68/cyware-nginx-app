@@ -6,7 +6,8 @@ pipeline {
             steps {
                     // SSH into the EC2 instance
                     sshagent(['SSH-CREDENTIALS']) {
-                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.235.33.182 "sudo apt install -y docker-compose"'
+                        // Install Docker Compose on EC2 instnace
+                         sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.235.33.182 "sudo apt install -y docker-compose"'
 
                         // Copy the Docker Compose file to the EC2 instance and Docker login 
                          sh "scp -r -o StrictHostKeyChecking=no docker-compose.yaml ubuntu@13.235.33.182:~/"
