@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   nginx:
-    image: snehitha68/cyware-nginxapp
+    image: snehitha68/cyware-nginxapp:RC1
     container_name: nginx-container
     restart: always
     ports:
