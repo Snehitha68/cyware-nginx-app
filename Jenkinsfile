@@ -15,7 +15,7 @@ pipeline {
                 // withAWS(credentials:'aws-credentials') {
                     // SSH into the EC2 instance
                     sshagent(['SSH-CREDENTIALS']) {
-                        sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.235.33.182 "sudo apt install -y docker-compose"'
+                        // sh 'ssh -o StrictHostKeyChecking=no ubuntu@13.235.33.182 "sudo apt install -y docker-compose"'
                         // sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.13.95 "sudo service docker start"'
                         // sh 'ssh -o StrictHostKeyChecking=no ubuntu@52.66.13.95 "sudo usermod -aG docker ec2-user"'
 
